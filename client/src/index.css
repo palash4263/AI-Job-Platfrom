@@ -1,18 +1,44 @@
+/* Load Syne at CSS level so it's available before JS hydrates */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
+
 @import "tailwindcss";
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+/* Tailwind's Preflight already handles basic resets.
+  We only add box-sizing here to be explicit without fighting Tailwind.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-html{
-  scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-  background:#020617;
-  color:white;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x:hidden;
+body {
+  background: #020617;
+  color: white;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  margin: 1;
+  padding: 1;
+}
+
+/* Custom Scrollbar for a polished look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
 }

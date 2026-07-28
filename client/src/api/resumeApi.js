@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const BASE_URL =
-  "http://localhost:8080/api/resume";
-
+  "http://localhost:8081/api/resume";
+ 
 export const uploadResume = async (
   file
 ) => {

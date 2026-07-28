@@ -1,14 +1,42 @@
 import AuthLayout from "../layouts/AuthLayout";
 import { FaGoogle } from "react-icons/fa";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+const { login } = useAuth();
+
+const handleLogin = (e) => {
+
+  e.preventDefault();
+
+  const result = login(
+    email,
+    password
+  );
+
+  if (!result.success) {
+
+    alert(result.message);
+
+    return;
+  }
+
+  navigate("/dashboard");
+};
   return (
     <AuthLayout
       title="Welcome Back"
       subtitle="Login to continue your AI-powered job search journey."
     >
 
-      <form className="space-y-6">
+      <form className="space-y-6" onSubmit={handleLogin}>
 
         {/* Email */}
         <div>
@@ -19,6 +47,9 @@ const Login = () => {
           <input
             type="email"
             placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
             className="
             w-full
             bg-white/[0.03]
@@ -41,6 +72,9 @@ const Login = () => {
           <input
             type="password"
             placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
             className="
             w-full
             bg-white/[0.03]
@@ -73,6 +107,7 @@ const Login = () => {
 
         {/* Login Button */}
         <button
+          type="submit"
           className="
           w-full
           bg-gradient-to-r

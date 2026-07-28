@@ -1,13 +1,40 @@
 import AuthLayout from "../layouts/AuthLayout";
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 const Signup = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { signup } = useAuth();
+  const navigate = useNavigate();
+
+const handleSignup = (e) => {
+
+  e.preventDefault();
+
+  const result = signup(
+    name,
+    email,
+    password
+  );
+
+  if (!result.success) {
+
+    alert(result.message);
+
+    return;
+  }
+
+  navigate("/dashboard");
+};
   return (
     <AuthLayout
       title="Create Account"
       subtitle="Start discovering AI-matched opportunities today."
     >
 
-      <form className="space-y-6">
+      <form className="space-y-6" onSubmit={handleSignup}>
 
         {/* Name */}
         <div>
@@ -18,6 +45,9 @@ const Signup = () => {
           <input
             type="text"
             placeholder="Enter your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
             className="
             w-full
             bg-white/[0.03]
@@ -40,6 +70,9 @@ const Signup = () => {
           <input
             type="email"
             placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
             className="
             w-full
             bg-white/[0.03]
@@ -62,6 +95,9 @@ const Signup = () => {
           <input
             type="password"
             placeholder="Create password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
             className="
             w-full
             bg-white/[0.03]
@@ -77,6 +113,7 @@ const Signup = () => {
 
         {/* Signup Button */}
         <button
+          type="submit"
           className="
           w-full
           bg-gradient-to-r

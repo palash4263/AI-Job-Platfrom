@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -16,6 +16,12 @@ const AppRoutes = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/jobs" element={<Jobs />} />
+        
+        {/* Redirect /apply to /dashboard where auto-apply core resides */}
+        <Route path="/apply" element={<Navigate to="/dashboard" replace />} />
+        
+        {/* Wildcard fallback redirects to home */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
     </BrowserRouter>

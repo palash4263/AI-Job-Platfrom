@@ -6,30 +6,32 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full">
+    <header className="sticky top-0 z-50 w-full px-4 sm:px-6 lg:px-10 xl:px-14 py-4">
 
       {/* Navbar Wrapper */}
-      <nav className="w-full px-4 sm:px-6 lg:px-10 xl:px-14 py-5">
+      <nav className="w-full px-4 sm:px-6 lg:px-10 xl:px-14 py-6">
         {/* Glass Navbar */}
         <div
           className="
           flex items-center justify-between
-          h-20
-          px-6 lg:px-10
-          rounded-3xl
-          bg-white/[0.04]
-          backdrop-blur-2xl
-          border border-white/10
-          shadow-[0_8px_32px_rgba(0,0,0,0.35)]
+          h-24
+          px-8 lg:px-12
+          rounded-2xl
+          bg-gradient-to-r from-white/[0.08] to-white/[0.04]
+          backdrop-blur-xl
+          border border-white/[15]
+          shadow-[0_8px_32px_rgba(0,0,0,0.2)]
+          hover:shadow-[0_12px_48px_rgba(34,211,238,0.15)]
+          transition-all duration-300
           "
         >
 
           {/* Logo */}
           <Link
             to="/"
-            className="flex-shrink-0 hover:scale-105 transition-all duration-300 mx-2" 
+            className="flex-shrink-0 hover:scale-105 transition-all duration-300 px-4 py-3" 
           >
-            <h1 className="text-3xl sm:text-4xl font-black tracking-tight mx-2">
+            <h1 className="text-3xl sm:text-4xl font-black tracking-tight">
 
               <span className="text-white">
                 Apply
@@ -38,7 +40,7 @@ const Navbar = () => {
               <span
                 className="
                 text-cyan-400
-                drop-shadow-[0_0_18px_rgba(34,211,238,0.9)]
+                drop-shadow-[0_0_20px_rgba(34,211,238,0.8)]
                 "
               >
                 King
@@ -52,7 +54,7 @@ const Navbar = () => {
             className="
             hidden md:flex
             items-center
-            gap-10
+            gap-12
             absolute left-1/2
             -translate-x-1/2
             "
@@ -64,8 +66,9 @@ const Navbar = () => {
               relative text-slate-300
               hover:text-cyan-400
               transition-all duration-300
-              font-medium text-lg
+              font-semibold text-base
               group
+              px-3 py-2
               "
             >
               Home
@@ -73,8 +76,8 @@ const Navbar = () => {
               <span
                 className="
                 absolute -bottom-1 left-0
-                w-0 h-[2px]
-                bg-cyan-400
+                w-0 h-[2.5px]
+                bg-gradient-to-r from-cyan-400 to-blue-500
                 transition-all duration-300
                 group-hover:w-full
                 "
@@ -87,8 +90,9 @@ const Navbar = () => {
               relative text-slate-300
               hover:text-cyan-400
               transition-all duration-300
-              font-medium text-lg
+              font-semibold text-base
               group
+              px-3 py-2
               "
             >
               Jobs
@@ -96,8 +100,8 @@ const Navbar = () => {
               <span
                 className="
                 absolute -bottom-1 left-0
-                w-0 h-[2px]
-                bg-cyan-400
+                w-0 h-[2.5px]
+                bg-gradient-to-r from-cyan-400 to-blue-500
                 transition-all duration-300
                 group-hover:w-full
                 "
@@ -110,8 +114,9 @@ const Navbar = () => {
               relative text-slate-300
               hover:text-cyan-400
               transition-all duration-300
-              font-medium text-lg
+              font-semibold text-base
               group
+              px-3 py-2
               "
             >
               Dashboard
@@ -119,8 +124,8 @@ const Navbar = () => {
               <span
                 className="
                 absolute -bottom-1 left-0
-                w-0 h-[2px]
-                bg-cyan-400
+                w-0 h-[2.5px]
+                bg-gradient-to-r from-cyan-400 to-blue-500
                 transition-all duration-300
                 group-hover:w-full
                 "
@@ -130,25 +135,25 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Buttons */}
-          <div className="hidden md:flex items-center gap-5 mr-2">
+          <div className="hidden md:flex items-center gap-4 mr-0">
 
             {/* Login */}
             <Link to="/login">
               <button
                 className="
-                px-6 py-2.5
-                rounded-xl
-                border border-cyan-400/30
-                bg-white/[0.03]
+                px-8 py-3.5
+                rounded-lg
+                border border-cyan-400/40
+                bg-white/[0.05]
                 text-cyan-300
-                font-medium
+                font-semibold
                 transition-all duration-300
-                hover:border-cyan-400
-                hover:bg-cyan-400/10
-                hover:text-white
+                hover:border-cyan-400/80
+                hover:bg-cyan-400/15
+                hover:text-cyan-100
                 hover:shadow-lg
-                hover:shadow-cyan-500/20
-                hover:-translate-y-0.5
+                hover:shadow-cyan-500/25
+                hover:-translate-y-1
                 "
               >
                 Login
@@ -160,8 +165,8 @@ const Navbar = () => {
               <button
                 className="
                 relative overflow-hidden
-                px-6 py-2.5
-                rounded-xl
+                px-8 py-3.5
+                rounded-lg
                 font-bold
                 text-slate-900
                 bg-gradient-to-r
@@ -169,6 +174,7 @@ const Navbar = () => {
                 to-blue-500
                 transition-all duration-300
                 hover:scale-105
+                hover:-translate-y-1
                 hover:shadow-2xl
                 hover:shadow-cyan-500/40
                 "
@@ -180,7 +186,7 @@ const Navbar = () => {
                 <div
                   className="
                   absolute inset-0
-                  bg-white/20
+                  bg-white/25
                   translate-x-[-100%]
                   hover:translate-x-[100%]
                   transition-transform duration-700
@@ -214,11 +220,12 @@ const Navbar = () => {
             className="
             md:hidden
             mt-4
-            p-5
+            p-6
             rounded-2xl
-            bg-white/[0.04]
-            backdrop-blur-2xl
-            border border-white/10
+            bg-gradient-to-b from-white/[0.08] to-white/[0.04]
+            backdrop-blur-xl
+            border border-white/[15]
+            shadow-lg
             space-y-4
             "
           >
@@ -229,7 +236,11 @@ const Navbar = () => {
               className="
               block text-slate-300
               hover:text-cyan-400
-              transition
+              transition-all
+              py-2.5
+              px-3
+              rounded-lg
+              hover:bg-white/5
               "
             >
               Home
@@ -241,7 +252,11 @@ const Navbar = () => {
               className="
               block text-slate-300
               hover:text-cyan-400
-              transition
+              transition-all
+              py-2.5
+              px-3
+              rounded-lg
+              hover:bg-white/5
               "
             >
               Jobs
@@ -253,13 +268,17 @@ const Navbar = () => {
               className="
               block text-slate-300
               hover:text-cyan-400
-              transition
+              transition-all
+              py-2.5
+              px-3
+              rounded-lg
+              hover:bg-white/5
               "
             >
               Dashboard
             </Link>
 
-            <div className="flex gap-3 pt-4">
+            <div className="flex gap-3 pt-4 border-t border-white/10">
 
               <Link
                 to="/login"
@@ -268,10 +287,15 @@ const Navbar = () => {
               >
                 <button
                   className="
-                  w-full py-3
-                  rounded-xl
-                  border border-cyan-400/30
+                  w-full py-3.5
+                  px-4
+                  rounded-lg
+                  border border-cyan-400/40
                   text-cyan-300
+                  font-semibold
+                  transition-all
+                  hover:border-cyan-400/80
+                  hover:bg-cyan-400/15
                   "
                 >
                   Login
@@ -285,13 +309,17 @@ const Navbar = () => {
               >
                 <button
                   className="
-                  w-full py-3
-                  rounded-xl
+                  w-full py-3.5
+                  px-4
+                  rounded-lg
                   bg-gradient-to-r
                   from-cyan-400
                   to-blue-500
                   text-slate-900
                   font-bold
+                  transition-all
+                  hover:shadow-lg
+                  hover:shadow-cyan-500/30
                   "
                 >
                   Get Started
